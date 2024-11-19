@@ -39,14 +39,19 @@ class _CalcState extends State<myCalc> {
               Flexible(
                 child: Align(
                       alignment: Alignment.centerRight,
-                      child: Text(
-                        provider.historyDisplay, 
-                        textAlign: TextAlign.right,
-                        style: const TextStyle(
-                          fontSize: 40,
-                          color: Colors.white70,
-                        ),
-                      ),
+                      child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: provider.historyDisplay
+                        .map((entry) => Text(
+                              entry,
+                              textAlign: TextAlign.right,
+                              style: const TextStyle(
+                                fontSize: 20,
+                                color: Colors.white70,
+                              ),
+                            ))
+                        .toList(),
+                  ),
                     ),
               ), 
             
